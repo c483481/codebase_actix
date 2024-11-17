@@ -7,12 +7,12 @@ pub struct Config {
 impl Config {
     pub fn new() -> Self {
         dotenv::dotenv().ok();
-        
+
         Self {
             port: env::var("APP_PORT")
-            .unwrap_or_else(|_| "8080".to_string())
-            .parse()
-            .unwrap_or(8080),
+                .unwrap_or_else(|_| "8080".to_string())
+                .parse()
+                .unwrap_or(8080),
         }
     }
 }

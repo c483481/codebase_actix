@@ -4,9 +4,9 @@ use config::config::Config;
 use env_logger::Env;
 use std::time::Instant;
 
-mod response;
 mod app_info;
 mod config;
+mod response;
 
 use lazy_static::lazy_static;
 
