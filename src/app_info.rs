@@ -6,6 +6,7 @@ use crate::{START_TIME, APP_NAME, APP_VERSION};
 
 // Struktur untuk data asli
 #[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct AppInfo {
     pub manifest: Manifest,
     pub up_time: String,
