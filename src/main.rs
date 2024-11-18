@@ -7,6 +7,7 @@ use std::time::Instant;
 mod app_info;
 mod config;
 mod response;
+mod pkg;
 
 use lazy_static::lazy_static;
 
@@ -22,6 +23,7 @@ const APP_VERSION: &str = "1.0.0";
 async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(Env::default().default_filter_or("info"));
     println!("🚀 Server running at http://localhost:{}", CONFIG.port);
+    println!("{}", CONFIG.db_uri);
 
     HttpServer::new(|| {
         App::new()
