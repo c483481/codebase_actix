@@ -25,6 +25,6 @@ impl Config {
         let db_pass = env::var("DB_PASS").unwrap_or_else(|_| "postgres".to_string());
         let db_name = env::var("DB_NAME").unwrap_or_else(|_| "postgres".to_string());
 
-        format!("postgres://{db_user}@{db_pass}:{db_host}:{db_port}/{db_name}")
+        format!("postgres://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}")
     }
 }

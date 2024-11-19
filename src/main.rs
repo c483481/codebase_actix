@@ -11,6 +11,8 @@ mod pkg;
 
 use lazy_static::lazy_static;
 
+use pkg::datasource::datasource::Datasource;
+
 lazy_static! {
     static ref START_TIME: Instant = Instant::now();
     static ref CONFIG: Config = Config::new();
@@ -22,8 +24,10 @@ const APP_VERSION: &str = "1.0.0";
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(Env::default().default_filter_or("info"));
+
+    let source = Datasource::new().await;
+
     println!("🚀 Server running at http://localhost:{}", CONFIG.port);
-    println!("{}", CONFIG.db_uri);
 
     HttpServer::new(|| {
         App::new()
